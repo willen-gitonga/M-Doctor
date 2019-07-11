@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chemoapp',
-    'django.contrib.sites',
     'bootstrap4',
     'materialize',
 ]
