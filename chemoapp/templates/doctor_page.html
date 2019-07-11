@@ -1,0 +1,36 @@
+{%extends "base/base.html"%}
+
+{% load bootstrap4 %}
+
+{%load static%}
+
+{% block content %}
+
+<h2>{{ doctor.user.username }}</h2>
+
+<!-- <h5>{{ doctor.review_set.count }} reviews ({{ project.service_rating | floatformat }} average rating of doctor's client
+    service </h5>
+<h5>{{ doctor.review_set.count }} reviews ({{ project.professionalism_rating | floatformat }} average rating of
+    professionalism</h5>
+<h5>{{ doctor.review_set.count }} reviews ({{ project.friendliness_rating | floatformat }} average rating of
+    friendliness</h5> -->
+
+
+<h3>See what other patients have to say about this doctor</h3>
+
+{% if doctor.review_set.all %}
+
+<div class="row">
+    {% for review in doctor.review_set.all %}
+    <div class="col-xs-6 col-lg-4">
+        <em>{{ review.comment }}</em>
+        <h6>Service Rated {{ review.service_rating}} of 10 by {{ review.user }}</h6>
+        <h6>Professionalism Rated {{ review.professionalism_rating }} of 10 by {{ review.user }}</h6>
+        <h6>Friendliness Rated {{ review.friendliness_rating }} of 10 by {{ review.user }}</h6>
+    </div>
+    {% endfor %}
+</div>
+
+{% endif %}
+
+{% endblock %}

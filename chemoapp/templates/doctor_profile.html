@@ -1,0 +1,139 @@
+{%extends "base/base.html"%}
+{% load bootstrap4 %}
+{%load static%}
+{% block content %}
+<!-- HEADER -->
+<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<div class="container">
+  <div class="row">
+    <!-- Intro Section -->
+    <section class="pt-80">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="box-resume">
+              <div class="center-top doctor-info">
+                <img src="{{profile.photo.url}}" alt="" class="img-responsive" style="border-radius: 50%;height:400px;width: 400px;">
+              </div>
+              <ul>
+                <li><strong>Name</strong> {{ profile.name }}</li>
+                <li><strong>Speciality</strong> {{profile.specialty}}</li>
+              </ul>
+              <div class="center-bottom"> <a href="3" class="btn btn-md btn-color-line ">Book Appointment</a> </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-sm-offset-1 pt-xs-60">
+            <h2>{{ profile.full_name }}</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, libero turpis non cras ligula, id commodo, aenean est in
+              volutpat amet sodales.</p>
+
+            <p>Lorem ipsum dolor sit amet, libero turpis non cras ligula, id commodo, aenean est in volutpat amet
+              sodales, porttitor bibendum facilisi suspendisse, aliquam ipsum ante morbi sed ipsum mollis. Sollicitudin
+              viverra, vel varius
+              eget sit
+              mollis. Commodo enim aliquam suspendisse tortor cum diam, commodo facilisis, rutrum et duis nisl
+              porttitor, vel eleifend odio ultricies.</p>
+
+            <div class="we-do">
+
+              <div class="doctor-details">
+
+                <div class="desc"> <i class="fa fa-stethoscope bg-color"></i>
+                  <h4>SPECIALITY</h4>
+                  <p>{{profile.specialty}}</p>
+                </div>
+                <div class="desc"> <i class="fa fa-graduation-cap bg-color"></i>
+
+                  <h4>EDUCATION</h4>
+
+                  <p>Doctor of Gynaecological, University of Lorem, Uk</p>
+
+                  <p>Doctor of Rehabilitation, University of Lorem, US</p>
+
+                </div>
+
+                <div class="desc"> <i class="fab fa-medapps"></i>
+
+                  <h4>EXPERIENCE</h4>
+
+                  <p>25 years of Experience in Gynaecological</p>
+
+                  <p>10 years of Experience in Surgeon</p>
+
+                </div>
+
+                <div class="desc pb-80"> <i class="fa fa-trophy bg-color"></i>
+
+                  <h4>AWARDS & RECOGNITION</h4>
+
+                  <p> Top Doctor ofDoctor of Gynaecological (2016)</p>
+
+                  <p>Best AWARDS of Surgeon</p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Section -->
+
+    <section class="">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-sm-4 mt-xs-30">
+
+            <h4>Emergency Case</h4>
+
+            <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem,
+              Maecenas tempus, tellus eget condimentum rhoncus.</p>
+
+            <a class="btn btn-md btn-white-line  mt-15">Read More</a>
+          </div>
+
+          <div class="col-sm-4 mt-xs-30">
+
+            <h4>Doctors Timetable</h4>
+
+            <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem,
+              Maecenas tempus, tellus eget condimentum rhoncus.</p>
+
+            <a class="btn btn-md btn-white-line  mt-15">Read More</a>
+          </div>
+
+          <div class="col-sm-4 mt-xs-30">
+
+            <h4>Opening Hours</h4>
+
+            <ul class="timing">
+
+              <li> <span class="fl">Monday - Friday</span> <span class="fr">8.00 - 17.00</span> </li>
+
+              <li><span>Saturday</span> <span class="fr">9.30 - 17.30</span></li>
+
+              <li><span>Sunday</span> <span class="fr">9.30 - 15.00</span></li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- End  Section -->
+    {% endblock %}

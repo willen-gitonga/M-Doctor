@@ -1,0 +1,42 @@
+{%extends "base/layout.html"%}
+{% block content %}
+{{ block.super}}
+{% load bootstrap4 %}
+<br>
+<br>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <p class="text-uppercase">{{blogpost.title}}</p>
+    </div>
+    <div class="card border-secondary">
+      <img class="card-img-top" class="img-responsive" src="{{blogpost.user.photo.url}}" size="100px200">
+    </div>
+    <div class="card-body">
+      <p>{{blogpost.content}}</p>
+      <small class="text-muted">Shared by {{ blogpost.posted_by }}, {{blogpost.date}}</small>
+      <hr>
+      {% for comment in blogpost.comments.all %}
+      <p><strong>{{comment.poster}}</strong> {{comment.comment}}</p>
+      {% endfor %}
+    </div>
+    <hr>
+
+    {{form.media}}
+
+    <form action="/comment/" method="post" enctype="multipart/form-data" id="sema">
+      {% csrf_token %}
+      <input type="text" name="post" value="{{blogpost.id}}" id="id_post" hidden>
+      <div class="form-group"><label for="id_comment">Comment</label><input type="text" name="comment" maxlength="200" class="form-control" placeholder="Comment" title="" required id="id_comment" /></div>
+
+      <button type="submit" name="button"> comment</button>
+    </form>
+
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    {% bootstrap_javascript %}
+    {% endblock %}
+  </div>
+</div>
+{% endblock %}

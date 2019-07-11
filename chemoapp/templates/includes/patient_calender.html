@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="border w-auto cbody p-3 rounded">
+        <table class="">
+                <thead>
+                        <h1 class="display-4">November</h1>
+                </thead>
+                <thead cellpadding="10" class="card-header">
+                        <div class="d-flex week">
+                                <div class="d-flex item" id="crow"><button class="chead flex-fill btn btn-lg px-3 m-1 my-3">sun</button></div>
+                                <div class="d-flex item" id="crow"><button class="chead flex-fill btn btn-lg px-3 m-1 my-3">mon</button></div>
+                                <div class="d-flex item" id="crow"><button class="chead flex-fill btn btn-lg px-3 m-1 my-3">tue</button></div>
+                                <div class="d-flex item" id="crow"><button class="chead flex-fill btn btn-lg px-3 m-1 my-3">wed</button></div>
+                                <div class="d-flex item" id="crow"><button class="chead flex-fill btn btn-lg px-3 m-1 my-3">thu</button></div>
+                                <div class="d-flex item" id="crow"><button class="chead flex-fill btn btn-lg px-3 m-1 my-3">fri</button></div>
+                                <div class="d-flex item" id="crow"><button class="chead flex-fill btn btn-lg px-3 m-1 my-3">sat</button></div>
+                        </div>
+                </thead>
+                <tbody>
+                        <div class="d-flex week flex-fill">
+                                {% for app in doctor.all_appointments.all %}
+                                <div class="item d-flex">
+                                        <button onclick="getId(this.id)" id="{{ app.day | date:'Y-m-d' }}" class="btn flex-fill mx-2 my-1">
+                                                {{ app.day | date:'d' }}</button>
+                                </div>
+                                {% endfor %}
+                        </div>
+                </tbody>
+        </table>
+</div>
+<script src="{% static 'js/calendar.js' %}" charset="utf-8"></script>

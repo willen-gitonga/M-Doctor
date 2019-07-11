@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="vh-100 text-sea reg-patient">
+    <div class="row h-100 mx-0">
+        <div class="col-md-6 d-flex justify-content-center split-left h-100">
+            <div class="d-flex align-items-center">
+                <h3 class="font-dosis">About Us</h3>
+            </div>
+        </div>
+        <div class="col-md-6 split-right h-100 d-flex flex-column justify-content-center text-center px-5">
+            <div>
+                <form action="/verify_doctor/" method="GET">
+                    <div class="form-group">
+                        <div class="my-3 field d-flex">
+                            <input class="border-dark-blue opacity-7 form-control py-4 mr-2" type="text" name="check_doctor"
+                                id="id_check_doctor" required placeholder="Enter your full name" />
+                        </div>
+                        <div class="form-group d-flex mx-auto">
+                            <button type="submit" class="bg-dark-blue btn px-5 text-sea">Search Doctors</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

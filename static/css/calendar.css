@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+.cbody {
+    background-color: #5bf8ff;
+}
+
+td button {
+    background-color: #57ffb9
+}
+
+.chead {
+    background-color: #6da0ff;
+}
+
+#day:hover {
+    background-color: #6da0ff;
+}
+
+.week {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.item {
+    -ms-flex: 0 0 14.28571%;
+    flex: 0 0 14.28571%;
+    max-width: 14.28571%;
+}
+
+.searched-doctors-photo {
+    width: 80%;
+    height: 100px;
+}

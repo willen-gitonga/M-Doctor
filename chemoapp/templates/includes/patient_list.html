@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %}
+<h2>List Of Patients</h2>
+{% endblock %} {% block content %} {% if patients %}
+<div class="row">
+    {% for patient in patients %}
+    <div class="col-xs-6 col-lg-4">
+        <h4><a href="{% url 'patient_list' patient.id %}">
+                {{ patient.username }}
+            </a></h4>
+        <h5>{{ patient.email }} </h5>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No patients are available.</p>
+{% endif %} {% endblock %}

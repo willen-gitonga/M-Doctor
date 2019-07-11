@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+}
+
+:root {
+    --sea: #c9e265;
+    --dark-blue: #114455;
+    --aqua: #4cc0b3;
+    --aqua-dark: #007788;
+}
+
+.font-dosis {
+    font-family: 'Dosis', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+.sdf {
+    color: #4cc0b2a7
+}
+
+.vw-100 {
+    width: 100vw;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.font-merriweather {
+    font-family: 'Merriweather', serif;
+}
+
+.people-icon {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+}
+
+.text-sea {
+    color: var(--sea)
+}
+
+.bg-sea {
+    background-color: var(--sea)
+}
+
+li {
+    list-style: none;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-scroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-face-color: #007788;
+}
+
+.vh-100 {
+    height: 90vh;
+}
+
+.landing-left-curve {}
+
+.vh-70 {
+    height: 70vh;
+}
+
+.vh-90 {
+    height: 85vh;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.vh-60 {
+    height: 60vh;
+}
+
+.vh-80 {
+    height: 80vh;
+}
+
+.vh-40 {
+    height: 40vh;
+}
+
+#mamaFooter a {
+    font-size: 14px;
+}
+
+.split-left {
+    background-color: var(--dark-blue);
+}
+
+.media1 {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    height: 300px;
+    color: var(--dark-blue);
+    background-color: var(--sea)
+}
+
+.media2 {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    height: 300px;
+    color: var(--sea);
+    background-color: var(--dark-blue)
+}
+
+.col-md-4 {
+    padding: 5px;
+}
+
+.split-right {
+    background-color: var(--aqua-dark);
+}
+
+.border-dark-blue {
+    border-color: var(--aqua-dark);
+}
+
+.text-dark-blue {
+    color: var(--dark-blue);
+}
+
+
+.decoration-none {}
+
+.decoration-none:hover {
+    text-decoration: none;
+}
+
+.text-aqua {
+    color: var(--aqua)
+}
+
+.top-max {
+    z-index: 20;
+}
+
+.text-dark-aqua {
+    color: var(--aqua-dark);
+}
+
+a:hover {
+    color: var(--aqua-dark);
+}
+
+
+.bg-dark-blue {
+    background-color: var(--dark-blue);
+}
+
+.bg-dark-aqua {
+    background-color: var(--aqua-dark);
+}
+
+.bg-aqua {
+    background-color: var(--aqua);
+}
+
+.profile-photo {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.text-white-100 {
+    color: #ffffff
+}
+
+.opacity-9 {
+    opacity: 0.9;
+}
+
+.slot-width {
+    width: 100px;
+}
+
+.doc-photo {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.doc-apps-calendar:nth-child(even) {
+    background-color: rgb(214, 214, 214)
+}
+
+.mhand {}
+
+.none {
+    display: none !important;
+}
+
+.mhand:hover {
+    cursor: pointer;
+}
+
+.login-overlay {
+    position: absolute;
+    left: 25%;
+    width: calc(100%/2);
+    height: 100%;
+}
+
+
+.landing-overlay {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 50%;
+    height: 100%;
+}
+
+
+.modal-text {
+    font-family: 'Dosis', sans-serif;
+}
+
+#mamaFooter a:hover {
+    color: var(--aqua-dark)
+}

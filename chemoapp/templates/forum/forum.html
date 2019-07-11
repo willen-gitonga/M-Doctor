@@ -1,0 +1,107 @@
+{%extends "base/layout.html"%}
+{% block content %}
+{{ block.super}}
+{% load bootstrap4 %}
+
+<br>
+<br>
+<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<div class="c" style="padding-top: 24px">
+  {% include 'message/message.html' %}
+</div>
+<div class="container-fluid">
+  <header>
+    <h1 class="text-center" style="font-weight:bold"></h1>
+    <h5 class="text-center"><small></small></h5>
+  </header>
+  <hr>
+  <br>
+  <div class="row">
+    <div class="col-2">
+      <br>
+      <a class="btn btn-sm btn-dark-blue text-sea" href="{% url 'create_post' %}">Create Post</a>
+    </div>
+
+    <div class="col-6">
+      <div class="text-dark-blue">
+        <h4 class="font-weight-bold">Shared Stories</h4>
+      </div>
+      {% if posts %}
+      {% for post in posts %}
+      <div class="media mb-5">
+        <div class="media-left media-top">
+          <img src="{{post.user.photo.url}}" class="media-object" style="width:80px">
+
+        </div>
+        <div class="media-body">
+          <div class="post-border-left px-2 py-4">
+            <h4 class="media-heading text-capitalize">{{ post.title }}</h4>
+            <p class="media-content">{{ post.content }}</p>
+            <small>Shared by {{ post.posted_by }}, {{post.date}}</small>
+          </div>
+          <div class="pl-4 my-2">
+            <h6 class="font-italic text-muted">{{ post.comments.all | length }} comments</h6>
+            <div class="d-flex flex-column">
+              {% for comment in post.all_comments %}
+              {% if comment.poster == request.user %}
+              <div class="">
+                <p class="float-right">
+                  <strong>{{comment.poster}}</strong> {{comment.comment}}
+                </p>
+              </div>
+              {% else %}
+              <div class="">
+                <p class="">
+                  <strong>{{comment.poster}}</strong> {{comment.comment}}
+                </p>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          {{form.media}}
+
+          <form action="/comment/" method="post" enctype="multipart/form-data" id="sema">
+            {% csrf_token %}
+            <input type="text" name="post" value="{{post.id}}" id="id_post" hidden>
+            <div class="form-group"><label for="id_comment">Comment</label><input type="text" name="comment" maxlength="200" class="form-control" placeholder="Comment" title="" required id="id_comment" /></div>
+
+            <button class="btn bg-sea text-dark-blue" type="submit" name="button"> comment</button>
+          </form>
+
+          {% block scripts %}
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+          {% bootstrap_javascript %}
+          {% endblock %}
+        </div>
+
+        <hr>
+
+      </div>
+      {% endfor %}
+      <div>
+        {% else %}
+        <p>No Posts yet.</p>
+        <a class="btn btn-sm btn-secondary" href="{% url 'create_post' %}">Create Post</a>
+        {% endif %}
+      </div>
+
+
+    </div>
+
+    <div class="col-3">
+      <h4>Past Posts</h4>
+      <hr>
+      {% for post in posts.all %}
+      <p class="text-capitalize"><a href="single_blog/{{post.id}}">{{ post.title }}</a></p>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{%extends "base/base.html"%}
+
+{% load bootstrap4 %}
+
+{%load static%}
+
+{% block content %}
+
+{% block title %}
+<title>{{ patient.name }}</title>
+{% endblock title %}
+
+<div class="container-fluid" style="float:left; ">
+    <div class="row">
+
+        <div class="col-md-12">
+            <h2 class="account-heading">Record of {{ patient.username }} Medical Details</h2>
+
+            {% if user.patient.photo %}
+
+            <img class="rounded-circle account-img" style="border-radius:50%;height:200px; width:200px;" src="{{ user.patient.photo.url }}">
+            {% endif %}
+            <p><b>Consulting Doctor: </b>Dr. {{doctor.first_name}} &nbsp; &nbsp; {{doctor.first_name}}</p>
+            <p><b>Hospital Number: </b>{{patient.id_number}}</p>
+            <p><b>Birthday: </b>{{patient.birthday}}</p>
+            <p><b>Location: </b>{{patient.location}}</p>
+            <p><b>Gender: </b>{{patient.gender}}</p>
+            <p class="text-secondary"><b>Email: </b>{{ user.email }}</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

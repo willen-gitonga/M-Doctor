@@ -1,0 +1,21 @@
+{%extends "base/base.html"%}
+{% load bootstrap4 %}
+{%load static%}
+{% block content %}
+
+{% block title %}
+<title>Edit Your Patient Profile Information</title>
+{% endblock title %}
+
+<body>
+    <div class="container" style="background-color:black; color:white;font-family: 'Dosis', sans-serif;">
+        <div class="row">
+            <form action="{%url 'edit_patient_profile'%}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form%}
+                <input id="id_myfield" type="submit" class="btn btn-success btn-lg" value="Post">
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock %}
