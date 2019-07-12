@@ -84,15 +84,7 @@
                             <h3>Choose Time</h3>
                             <div class="d-flex flex-wrap">
                                 {% for slot in doctor.working_hours.appointment_slots %}
-                                <div class="m-1">
-                                    <a href="{% url 'payment' %}">
-                                        <button class="slot-width btn cbody" id="{{ slot }}" onclick="setSlot(this.id); $('#submit-book-btn').click()">
-                                            <span>
-                                                {{ slot }}
-                                            </span>
-                                        </button>
-                                    </a>
-                                </div>
+                            
                                 {% endfor %}
                             </div>
                         </div>
@@ -111,7 +103,7 @@
     <div class="my-5">
         <div class="d-flex container text-center">
             <div class="profile-photo">
-                <img class="w-100" src="{{ doctor.photo.url }}" alt="">
+                <img class="rounded-circle" src="{{ doctor.photo.url }}" alt="">
             </div>
             <a class="text-dark-blue decoration-none" href="/doctor_profile/{{doctor.user.id}}/{{doctor.full_name}}/">
                 <h3 class="my-2">{{ doctor.full_name }}</h3>
@@ -222,7 +214,7 @@
     <div class="my-5">
         <div class="d-flex container">
             <div class="profile-photo">
-                <img class="w-100" src="{{ doctor.photo.url }}" alt="">
+                <img class="rounded-circle" src="{{ doctor.photo.url }}" alt="">
             </div>
             <div class="d-flex align-items-center">
 

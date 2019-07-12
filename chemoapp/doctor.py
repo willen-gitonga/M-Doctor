@@ -18,7 +18,5 @@ def dashboard(request):
 
 
 def doctor_profile(request, doctor_id, name):
-    doc = Doctor.get_one_doctor(doctor_id)
-    profile = DoctorProfile.objects.get(doctor=doc)
-
+    profile = User.objects.get(username=request.user)
     return render(request, "doctor_profile.html", {"profile": profile})

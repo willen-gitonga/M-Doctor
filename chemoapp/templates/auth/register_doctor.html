@@ -57,7 +57,7 @@
                 {% endif %}
             </div>
             <div>
-                <form action="{% url '' project.id %}" method="post">
+                <form method="post">
                     {% csrf_token %}
                     <input type="text" name="reg_no" id="form_reg_no" value="" hidden>
                     <div class="form-group">
