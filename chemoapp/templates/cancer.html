@@ -1,0 +1,36 @@
+{%extends "base/base.html"%}
+{% load bootstrap4 %}
+{%load static%}
+{% block content %}
+<div class="container">
+
+
+    <div class="row">
+
+            <div class="col-md-2 col-sm-1 "></div>
+            <div class="col-md-8 col-sm-10 col-xs-12">
+
+                <div class="card">
+
+                    <div class="card-header" style="font-size:20px">
+                        Type of illness
+                    </div>
+
+                    <div class="card-body">
+                            <form style="border:white" action="{% url 'add_cancer'    %}" method="post" enctype="multipart/form-data">
+                                {%csrf_token%}
+                                {% bootstrap_form form%}
+                                <input type="submit" class="btn btn-primary btn-sm" value="Post">
+                            </form>
+
+                    </div>
+                </div>
+
+    </div>
+</div>
+
+
+
+ 
+{%endblock%}
+

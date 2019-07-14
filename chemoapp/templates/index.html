@@ -133,6 +133,7 @@
         <div id="underline"></div>
       </div>
       <form id="contact-form" action="" method="post">
+          {%csrf_token%}
         <div class="form-group d-flex">
           <input type="text" name="first_name" class="form-control mr-2" placeholder="First Name" />
           <input type="text" name="last_name" class="form-control" placeholder="Last Name" />
@@ -149,6 +150,9 @@
     </div>
   </div>
 </section>
+
+
+
 
 <!-- <iframe src="https://health.the-star.co.ke/dodgy-dr" frameborder="0" scrolling="no" height="200px" width="100%"></iframe> -->
 {% endblock content %}

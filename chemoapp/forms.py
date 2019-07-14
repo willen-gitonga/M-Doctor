@@ -67,3 +67,9 @@ class PostForm(forms.ModelForm):
 
 class CheckDoctorsForm(forms.Form):
     check_doctor = forms.CharField(max_length=50)
+
+
+class CancerForm(forms.ModelForm):
+    class Meta:
+        model = Cancer
+        fields =['illness']

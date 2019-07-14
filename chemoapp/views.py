@@ -228,3 +228,29 @@ def book_appointment(request):
 #         medicines = Medication.objects.all()
 
 #     return render(request, 'medicines.html', {'medicines': medicines})
+
+def add_cancer(request):
+
+    cancer = Cancer.objects.all()
+
+
+    if request.method == 'POST':
+        form = CancerForm(request.POST)
+        if form.is_valid():
+            ill = form.save(commit=False)
+            ill.cancer=cancer
+            ill.save()
+        return redirect(cervical)
+    else:
+        form = CancerForm
+
+    return render(request,'cancer.html',locals())
+
+
+
+
+
+def cervical(request):
+    cancer = Cancer.objects.all()
+    return render(request, 'cervical.html')
+

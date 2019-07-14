@@ -1,4 +1,5 @@
-from __future__ import unicode_literals ##still not sure what this does.Do more research after lunch
+# still not sure what this does.Do more research after lunch
+from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.contrib.auth.models import User, AbstractBaseUser
 from django.contrib import admin
@@ -10,7 +11,7 @@ from django.utils import timezone
 import numpy as np
 import pandas as pd
 from itertools import groupby
-
+from django.shortcuts import render, redirect
 
 TIME_CHOICES = (
     ('6', '6:00 am'),
@@ -34,7 +35,6 @@ days = ['Monday', 'Tuesday', 'Wednesday',
 # -- Location
 
 
-
 class Location(models.Model):
     location = models.CharField(max_length=50)
 
@@ -56,7 +56,7 @@ class LocationForm(forms.ModelForm):
         fields = ()
 
 
-# -- Doctor model to display everything about the doctor and what services he or she offers and what time they are available for an appointment 
+# -- Doctor model to display everything about the doctor and what services he or she offers and what time they are available for an appointment
 
 
 class DoctorSpeciality(models.Model):
@@ -81,7 +81,8 @@ class DoctorSpecialityForm(forms.ModelForm):
 
 class Doctor(models.Model):
     user = models.OneToOneField(User, primary_key=True)
-    photo = models.FileField(upload_to='images', default='default.jpg', null=True)
+    photo = models.FileField(
+        upload_to='images', default='default.jpg', null=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     specialty = models.ForeignKey(DoctorSpeciality, null=True)
@@ -90,7 +91,7 @@ class Doctor(models.Model):
     @classmethod
     def create_doctor(cls, user, fee):
         cls.objects.create(user=user, consultation_fee=fee)
-        
+
     def make_appointments(self):
         days = pd.date_range('2012-05-25', '2012-06-27', freq='D')
         appointments = []
@@ -145,7 +146,6 @@ class Doctor(models.Model):
     def delete_doctor(self):
         self.delete()
 
-
     def average_service(self):
         service_ratings = list(
             map(lambda x: x.service_rating, self.reviews.all()))
@@ -181,12 +181,13 @@ class DoctorAdmin(admin.ModelAdmin):
 
 
 class DoctorProfile(models.Model):
-    doctor = models.OneToOneField(Doctor, on_delete=models.CASCADE, related_name='profile')
+    doctor = models.OneToOneField(
+        Doctor, on_delete=models.CASCADE, related_name='profile')
     name = models.CharField(max_length=100)
     score = models.IntegerField(default=0)
     registration_number = models.CharField(max_length=100)
     registration_date = models.CharField(max_length=100)
-    nationality = models.CharField(max_length=100)  
+    nationality = models.CharField(max_length=100)
     facility = models.CharField(max_length=100)
     postal_address = models.CharField(max_length=100)
     speciality = models.CharField(max_length=100)
@@ -198,7 +199,6 @@ class DoctorProfileForm(forms.ModelForm):
     class Meta:
         model = DoctorProfile
         exclude = ['doctor']
-
 
 
 # --
@@ -230,7 +230,6 @@ class DoctorWorkingHoursForm(forms.ModelForm):
         model = DoctorWorkingHours
         exclude = ['doctor']
 
-
     def save(self, doctor, commit=True):
         hours = super(DoctorWorkingHoursForm, self).save(commit=False)
         hours.doctor = doctor
@@ -241,7 +240,7 @@ class DoctorWorkingHoursAdmin(admin.ModelAdmin):
     list_display = ('doctor', 'working_from', 'working_to',)
 
 
-# Patient model that displays all the patient details and what he/ she might be wanting to have a look at 
+# Patient model that displays all the patient details and what he/ she might be wanting to have a look at
 
 
 class Patient(models.Model):
@@ -296,7 +295,8 @@ class Appointment(models.Model):
         Doctor, on_delete=models.CASCADE, related_name='appointments', null=True)
     day = models.DateField()
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
-    time_slot = models.CharField(max_length=20, choices=TIME_CHOICES, null=True)
+    time_slot = models.CharField(
+        max_length=20, choices=TIME_CHOICES, null=True)
     is_booked = models.BooleanField(default=False)
     is_completed = models.BooleanField(default=False)
 
@@ -345,8 +345,6 @@ class AppointmentDetailsForm(forms.ModelForm):
 
 class AppointmentDetailsAdmin(admin.ModelAdmin):
     list_display = ('appointment', 'notes',)
-
-
 
 
 class DoctorReview(models.Model):
@@ -435,4 +433,17 @@ class Comment(models.Model):
     def get_comment(cls):
         comment = Comment.objects.all()
         return comment
+
+
+class Cancer(models.Model):
+
+    CANCER_CHOICES = [
+    ('Cervical Cancer', 'Cervical Cancer'),
+    ('Breast Cancer', 'Breast Cancer'),
+    ('Leukemia', 'Leukemia'),
+]
+    illness = models.CharField(max_length=50, choices=CANCER_CHOICES)
+
+    def __str__(self):
+        return self.patient
 

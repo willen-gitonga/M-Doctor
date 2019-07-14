@@ -5,37 +5,9 @@
 <!-- Start of Async Drift Code -->
 <!-- Start of Async Drift Code -->
 <!-- Start of Async Drift Code -->
-<script>
-        "use strict";
-        
-        !function() {
-          var t = window.driftt = window.drift = window.driftt || [];
-          if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-              return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-              };
-            }, t.methods.forEach(function(e) {
-              t[e] = t.factory(e);
-            }), t.load = function(t) {
-              var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-              o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-              var i = document.getElementsByTagName("script")[0];
-              i.parentNode.insertBefore(o, i);
-            };
-          }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('t7mi2gr5uf8n');
-        </script>
-        <!-- End of Async Drift Code -->
-        <!-- End of Async Drift Code -->
-        <!-- End of Async Drift Code -->
-<!-- End of Async Drift Code -->
+<!-- Start of Async Drift Code -->
 
+                            
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -49,15 +21,13 @@
 
     {% block styles %}
 
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/patient.css' %}">
-    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/storytelling.css' %}">
-    <link rel="stylesheet" href="{% static 'css/trimestermelissa.css' %}">
     <link rel="stylesheet" href="{% static 'css/scrollytelling.css' %}">
     <link rel="stylesheet" href="{% static 'css/cssanimation.css' %}">
-    <link rel="stylesheet" href="{% static 'css/stuff.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stuff.css' %}"> -->
 
     {% endblock %}
 
@@ -87,6 +57,10 @@
                     <a class="text-dark-blue ml-3" href="{% url 'scrollytelling' %}">
                         Journey
                     </a>
+                    <a class="text-dark-blue ml-3" href="{% url 'add_cancer' %}">
+                            Illness
+                        </a>
+    
                     <!-- <div class="input-group-prepend ml-2">
                         <button class="bg-transparent btn dropdown-toggle text-dark-blue" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Types</button>
@@ -98,7 +72,7 @@
                             <div role="separator" class="dropdown-divider">
                             </div>
                             <a class="dropdown-item text-dark-aqua" href="{% url 'trimester3' %}">trimester three</a>
-                        </div>
+                        </div><a href="{% url 'add_cancer'  %}" class="btn btn-primary">Add cancer</a>
                     </div> -->
 
                 </div>
